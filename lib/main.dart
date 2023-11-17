@@ -89,7 +89,55 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
+        child: 
+       Container(
+        // Outermost container with rounded edges and a black border
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16.0),
+          border: Border.all(color: Colors.black, width: 2.0), // Thicker outermost border
+        ),
+        margin: EdgeInsets.all(128.0), // More white space around the outermost container
+        padding: EdgeInsets.all(16.0), // Padding for inner content
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            // Widgets for days of the week
+            for (String day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
+              Expanded(
+                child: Container(
+                  // Container for each day with rounded edges and light gray border
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    border: Border.all(color: Colors.grey[300]!),
+                  ),
+                  padding: EdgeInsets.all(8.0), // Padding for inner content
+                  margin: EdgeInsets.symmetric(horizontal: 4.0),
+                  child: Column(
+                    children: [
+                      Text(day),
+                      // Inner widgets representing meals
+                      for (int j = 0; j < 3; j++)
+                        Expanded(
+                          child: Container(
+                            // Container for each meal with rounded edges and a black border
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8.0),
+                              border: Border.all(color: Colors.black),
+                            ),
+                            margin: EdgeInsets.symmetric(vertical: 4.0), // Margin between meals
+                            alignment: Alignment.center,
+                            child: Text('Meal $j'), // Placeholder text for meals
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+          ],
+        ),
+       ),
+        
+        /*Column(
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
@@ -113,7 +161,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
-        ),
+        ),*/
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
