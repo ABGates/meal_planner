@@ -7,6 +7,6 @@ class LandingWrapper extends StatelessWidget{
   Widget build(BuildContext context){
     
     //nav to home or auth depending on sign-in
-    return Home();
+    return Authenticate();
   }
 }

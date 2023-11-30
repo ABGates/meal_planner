@@ -12,6 +12,6 @@ import 'package:meal_planner/main.dart';
 void main() {
   testWidgets('test name', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(const MealApp());
   });
 }
